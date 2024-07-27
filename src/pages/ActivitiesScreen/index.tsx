@@ -3,8 +3,7 @@ import {
     FlatList,
     SafeAreaView,
     StyleSheet,
-    View,
-    Text } from "react-native";
+    View} from "react-native";
 
 import ClickableStyledInput from "../../components/ClickableStyledInput";
 import TaskItem from "../../components/TaskItem";

@@ -1,11 +1,20 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const Tab = createBottomTabNavigator();
+
+export type RootTabParamList = {
+  Home: undefined;
+  Lobby: { sport: string };
+  WaitingRoom: undefined;
+  Activities: undefined;
+  Settings: undefined;
+};
+
+const Tab = createBottomTabNavigator<RootTabParamList>();
 
 type BottomTabsProps = {
   tabs: {
-    name: string;
+    name: keyof RootTabParamList;
     component: () => JSX.Element;
   }[];
 };

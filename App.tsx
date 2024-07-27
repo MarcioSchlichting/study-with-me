@@ -1,13 +1,18 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import BottomTabs from './src/components/BottomTabs';
+import BottomTabs, {RootTabParamList} from './src/components/BottomTabs';
 import HomeScreen from './src/pages/HomeScreen';
 import ActivitiesScreen from './src/pages/ActivitiesScreen';
+import SettingsScreen from "./src/pages/SettingsScreen";
 
-const bottomTabProps = [
+const bottomTabProps : {
+  name: keyof RootTabParamList;
+  component: () => JSX.Element;
+}[] = [
   { name: 'Home', component: HomeScreen },
-  { name: 'Activities', component: ActivitiesScreen }
+  { name: 'Activities', component: ActivitiesScreen },
+  { name: 'Settings', component: SettingsScreen }  
 ]
 
 export default function App() {
