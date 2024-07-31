@@ -1,25 +1,29 @@
 import React from 'react';
-import { View, FlatList, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
-import { RootTabParamList } from '../../components/BottomTabs';
+import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
+import {RootTabParamList} from '../../components/BottomTabs';
 import SelectSport from "../../components/SelectSport";
+import MatchingQueue from "../../components/MatchingQueue";
 
 type HomeScreenNavigationProp = BottomTabNavigationProp<RootTabParamList, 'Home'>;
 
 const HomeScreen: React.FC = () => {
+    const [selectedSport, setSelectedSport] = React.useState<Sport | null>(null);
     const navigation = useNavigation<HomeScreenNavigationProp>();
 
-    const handleSelectSport = (sport: string) => {
-        navigation.navigate('Lobby', { sport });
+    const handleSelectSport = (sport: Sport) => {
+        setSelectedSport(sport);
     };
+    
+    const isSportSelected = selectedSport !== null;
 
     return (
         <View style={styles.container}>
-            <SelectSport handleSelectSport={handleSelectSport} />
-            <TouchableOpacity style={styles.lobbyButton} onPress={() => navigation.navigate('WaitingRoom')}>
+            {(<MatchingQueue/>)}
+            {isSportSelected ?? <TouchableOpacity style={styles.lobbyButton} onPress={() => navigation.navigate('WaitingRoom')}>
                 <Text style={styles.lobbyButtonText}>Create Lobby</Text>
-            </TouchableOpacity>
+            </TouchableOpacity>}
         </View>
     );
 };
@@ -31,6 +35,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 20,
         backgroundColor: '#f8f8f8',
+        width: '100%',
     },
     lobbyButton: {
         backgroundColor: '#007bff',

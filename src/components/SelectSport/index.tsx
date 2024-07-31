@@ -28,7 +28,7 @@ type SelectSportProps = {
 const SelectSport = ({handleSelectSport} : SelectSportProps) => {
     return (<>
         <Text style={styles.title}>Select a Sport</Text>
-        <FlatList style={{'flex': 1}} numColumns={3}
+        <FlatList style={{'flex': 1}} numColumns={2}
                   data={sports}
                   keyExtractor={(item) => item.id}
                   renderItem={({ item }) => (
@@ -41,7 +41,7 @@ const SelectSport = ({handleSelectSport} : SelectSportProps) => {
         </>)
 }
 
-const styles = StyleSheet.create({
+const styles= StyleSheet.create({
     title: {
         fontSize: 24,
             fontWeight: 'bold',
