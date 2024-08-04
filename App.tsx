@@ -5,6 +5,7 @@ import BottomTabs, {RootTabParamList} from './src/components/BottomTabs';
 import HomeScreen from './src/pages/HomeScreen';
 import ActivitiesScreen from './src/pages/ActivitiesScreen';
 import SettingsScreen from "./src/pages/SettingsScreen";
+import Routes from "./src/routes";
 
 const bottomTabProps : {
   name: keyof RootTabParamList;
@@ -18,7 +19,8 @@ const bottomTabProps : {
 export default function App() {
   return (
     <NavigationContainer>
-      <BottomTabs tabs={bottomTabProps}/>
+      {/*<BottomTabs tabs={bottomTabProps}/>*/}
+      <Routes/>
     </NavigationContainer>
   );
 }

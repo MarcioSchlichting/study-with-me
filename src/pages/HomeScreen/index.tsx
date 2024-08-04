@@ -8,7 +8,7 @@ import MatchingQueue from "../../components/MatchingQueue";
 
 type HomeScreenNavigationProp = BottomTabNavigationProp<RootTabParamList, 'Home'>;
 
-const HomeScreen: React.FC = () => {
+const HomeScreen = () => {
     const [selectedSport, setSelectedSport] = React.useState<Sport | null>(null);
     const navigation = useNavigation<HomeScreenNavigationProp>();
 
