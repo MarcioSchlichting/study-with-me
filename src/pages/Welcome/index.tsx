@@ -1,4 +1,4 @@
-import {View, StyleSheet, Image, Text, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import {useNavigation, NavigationProp} from "@react-navigation/native";
 import {RootTabParamList} from "../../types/RootStackParamList";
